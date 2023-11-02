@@ -1,0 +1,61 @@
+<head>
+    <script src="https://cdn.tiny.cloud/1/1e6d8pa59wp5mv6skvd7kg3et2zgmidqrsessheu31xkauxb/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script src="/js/create-article.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/edit.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/post_article" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div id="titileAndDelete">
+                    <p>Title:</p>
+                    {{#if article}}
+                    <button type="button" value={{article.id}} id="deleteButton">Delete</button>
+                    {{/if}}
+                </div>
+                {{#if article}}
+                <input type="text" name="article_title" id="article_heading" value="{{article.title}}" required
+                    maxlength="50"></input>
+                <input type="hidden" name="article_id" value="{{article.id}}"></input><br>
+                {{#if image.url}}
+                <img src="{{image.url}}" alt="articleImage" id="imagePreview"><br>
+                {{else}}
+                <img src="" alt="articleImage" id="imagePreview" style="display: none;"><br>
+                {{/if}}
+                {{else}}
+                <input type="text" name="article_title" id="article_heading" required maxlength="50"></input><br>
+                <img src="" alt="articleImage" id="imagePreview" style="display: none;"><br>
+                {{/if}}
+            </div>
+
+            <div class="file_upload">
+                <label for="imageFile">Please upload your article image here!</label>
+                <input id="imageFile" type="file" name="imageFile" accept=".png,.jpg,.jpeg,.bmp"><br>
+            </div>
+            <p id="errorContainer"></p>
+            <div id="editor">
+                <p>Content:</p>
+                <textarea name="article_content" id="article_content" cols="30"
+                    rows="300">{{article.content}}</textarea>
+                <div class="button-container">
+
+                    <button type="submit" id="submitButton">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        {{!-- delete confirmation box --}}
+        <div id="deleteConfirmationModal" class="modal">
+            <div class="modal-content">
+                <h2>Confirm Delete</h2>
+                <p>Are you sure you want to delete?</p>
+                <div class="modal-buttons">
+                    <button id="confirmDeleteButton">Delete</button>
+                    <button id="cancelDeleteButton">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

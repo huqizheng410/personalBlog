@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script src="/js/subscription.js"></script>
+</head>
+
+<body>
+    <nav class="bar">
+        {{#if user}}
+        <div id="left-part-signin">
+            <img id="logo" src="/css/css_image/ball_open.png" alt="logo">
+            <h1 class="nav-brand" id="groupname">Group 5 Blog</h1>
+            <div id="links">
+                <a href="/homepage" class="nav-button{{#if homePage}} active{{/if}}">Home</a>
+                <a href="/analysis" class="nav-button{{#if analysisPage}} active{{/if}}">Analysis</a>
+                <a href="/userdetail/{{user.username}}" class="nav-button{{#if detailsPage}} active{{/if}}">My
+                    Portfolio</a>
+                <a href='/managesubscription?writerName={{user.username}}&&username={{user.username}}' class="nav-button">My Article</a>
+            </div>
+        </div>
+        <div class="notification-bell">
+            <div class="bell-icon">
+                <img src="/css/css_image/bell.png" alt= "bell" height="30px" width="30px" id="bell"></img>
+                <span class="notification-count" style="display: none">0</span>
+                <div class="dropdown-menu"></div>
+            </div>
+            <a href="/userdetail/{{user.username}}">{{user.username}}</a>
+            <img src="{{user.avatar}}" width="30px" onclick="location.href=`/userdetail/{{user.username}}`">
+            <a href="/logout" id="logout" class="nav-button{{#if logoutPage}} active{{/if}}"> Sign Out</a>
+        </div>
+        {{else}}
+        <div id="left-part-signout">
+            <img id="logo" src="/css/css_image/ball_close.png">
+            <h1 class="nav-brand">Group 5 Blog</h1>
+            <a href="/homepage" class="nav-button{{#if homePage}} active{{/if}}">Homepage</a>
+        </div>
+        <div id="right-part-signout">
+            <a href="/login" class="nav-button{{#if loginPage}} active{{/if}}">Sign In</a>
+            <a href="/newAccount" class="nav-button{{#if newAccountPage}} active{{/if}}">Sign Up</a>
+        </div>
+        {{/if}}
+    </nav>
+
+    {{{body}}}
+    {{#if extra_scripts}}
+    {{{extra_scripts}}}
+    {{/if}}
+</body>
+
+</html>

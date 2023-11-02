@@ -1,0 +1,69 @@
+<head>
+    <script type="text/javascript" src="/js/article-details.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/article.css">
+</head>
+<div class="container">
+    <div class="article">
+        {{#if article}}
+        <h1>{{article.title}}</h1>
+        <input id="articleId" value={{article.id}}>
+        <input id="userId" value={{user.id}}>
+        <input id="authorId" value={{article.user_id}}>
+
+        <div class="author-info">
+            <a href="/userdetail/{{article.username}}"><img src="{{article.avatar}}" alt="user avatar"></a>
+            <a href="/userdetail/{{article.username}}"><p>{{article.username}}</p></a>
+            <p>{{article.create_date}}</p>
+            <button id="likeButton" class="heart-icon {{likeButtonStyle}}" value={{userLikeStatus}}>{{likeButtonText}}
+                &#x2764; {{likesCount}}</button>
+            <p id="likesCount" style="display: none;">{{likesCount}}</p>
+            {{#if isAuthor}}
+            <button id="editButton" class="edit-icon">Edit &#x270E;</button>
+            {{/if}}
+
+        </div>
+
+        <div class="article-content">
+            {{#if imgUrl}}
+            <img src="{{imgUrl}}" alt="article image">
+            {{/if}}
+            <div>{{{article.content}}}</div>
+        </div>
+
+
+        <div class="comments">
+            <h3>Comments</h3>
+            <div class="addComment">
+                <textarea id="addedComment" name="addedComment" maxlength="500"
+                    placeholder="Enter your comment here and please limit your comment to a maximum of 300 characters."></textarea>
+                <div id="commentErrorMessage"></div>
+                <button id="submitComment">Add New Comment</button>
+            </div>
+            <button id="toggleComments" style="display: none;">Hide Comments</button>
+            <div class="comments-section"></div>
+        </div>
+
+        {{else}}
+        <p>Article Not Found</p>
+        {{/if}}
+    </div>
+    {{!-- login prompt box --}}
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <h2>Please Login</h2>
+            <p>You need to login to proceed.</p>
+            <button id="loginButton">Login</button>
+        </div>
+    </div>
+    {{!-- delete confirmation box --}}
+    <div id="deleteConfirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete?</p>
+            <div class="modal-buttons">
+                <button id="confirmDeleteButton">Delete</button>
+                <button id="cancelDeleteButton">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

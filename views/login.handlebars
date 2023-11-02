@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+</head>
+
+<div class="login-container">
+    <h1>Sign in</h1>
+    <form action="/login" method="POST" class="login-form">
+        <div class="input-field">
+            <label for="txtUsername">Username:</label>
+            <input type="text" name="username" id="txtUsername" required>
+        </div>
+
+        <div class="input-field">
+            <label for="txtPassword">Password:</label>
+            <input type="password" name="password" id="txtPassword" required>
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="login-btn">Sign in</button>
+        </div>
+    </form>
+
+    {{#if message}}
+    <p class="message">{{message}}</p>
+    {{/if}}
+
+    <p class="signup">Don't have an account? <a href="./newAccount">Create one here.</a></p>
+</div>

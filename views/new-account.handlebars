@@ -1,0 +1,76 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/signup.css">
+    <script type="text/javascript" src="/js/new-account.js"></script>
+</head>
+<div class="container">
+    <h1>Create a New Account</h1>
+
+    <form action="./newAccount" method="POST" class="signup-form">
+        <div class="input-field">
+            <label for="txtUsername">*Username:</label>
+            <span style="font-size:small; color:rgb(186, 178, 178);">Maximum 12 characters, only letters or numbers allowed</span>
+            <input type="text" name="username" id="username" maxlength="12" pattern="[A-Za-z0-9]*" required>
+            <span id="usernameMessage" style="color: red;"></span>
+            <span id="usernameInfo" style="display:none; color: red;">Please choose your username!</span>
+        </div>
+
+        <div class="input-field">
+            <label>*Choose your avatar:</label>
+            <div class="avatar-selection">
+                {{#each avatars}}
+                <div class="avatar-option">
+                    <img src="/uploadedAvatar/thumbnails/{{this}}" id="{{this}}">
+                    <input type="radio" id="radio-{{this}}" name="avatar" value="/uploadedAvatar/thumbnails/{{this}}">
+                </div>
+                {{/each}}
+            </div>
+            <span id="avatarMessage" style="display:none; color: red;">Please choose your avatars!</span>
+        </div>
+
+        <div class="input-field">
+            <label for="txtPassword">*Password:</label>
+            <span style="font-size:small; color:rgb(186, 178, 178);">Minimum 6 characters with at least one letter or number.</span>
+            <input type="password" name="password" id="password" required>
+            <span id="passwordInfo" style="display:none; color: red;">Please enter your password</span>
+        </div>
+
+        <div class="input-field">
+            <label for="reenteredpassword">*Re-Entered Password:</label>
+            <input type="password" name="reenteredpassword" id="reenteredpassword" required>
+            <span id="reenteredpasswordInfo" style="display:none; color: red;">Please enter your password</span>
+        </div>
+
+        <div class="input-field">
+            <p id="passwordmatch" style="color: red;"></p>
+        </div>
+
+        <div class="input-field">
+            <label for="firstname">*First Name:</label>
+            <input type="text" name="firstname" id="firstname" maxlength="18" pattern="[A-Za-z0-9]*" required>
+            <span id="firstnameInfo" style="display:none; color: red;">Please enter your first name!</span>
+        </div>
+
+        <div class="input-field">
+            <label for="lastname">*Last Name:</label>
+            <input type="text" name="lastname" id="lastname" maxlength="18" pattern="[A-Za-z0-9]*" required>
+            <span id="lastnameInfo" style="display:none; color: red;">Please enter your last name!</span>
+        </div>
+
+        <div class="input-field">
+            <label for="birthday">Date of Birth:</label>
+            <input type="date" name="birthday" id="birthday" value="2000-01-01" required>
+        </div>
+
+        <div class="input-field">
+            <label for="description">A brief description about yourself:</label>
+            <textarea name="description" id="description" placeholder="Please enter your description here"
+                oninput="limitInput(this, 100)"></textarea>
+            <p id="charLimitWarning" style="display:none; color: red;">Maximum of 100 characters!</p>
+        </div>
+        <div class="button-container">
+            <button type="submit" class="signup-btn">Create Account</button>
+        </div>
+
+    </form>
+
+</div>

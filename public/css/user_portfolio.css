@@ -1,0 +1,160 @@
+/* Buttons */
+button {
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgb(167, 121, 128);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.05s;
+}
+
+button:hover {
+    background-color: rgb(150, 80, 75);
+}
+
+#save,
+#password {
+    margin: 10px;
+}
+
+
+/* Card background */
+.card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgb(167, 121, 121);
+    border-radius: 8px;
+    width: 60%;
+    margin: 10px auto;
+    margin-bottom: 20px;
+    overflow: auto;
+    word-wrap: break-word;
+}
+
+
+.card #avatar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card #avatar img {
+    margin-right: 10px;
+}
+
+.card .detail-field {
+    margin-bottom: 10px;
+}
+
+.card .input-field {
+    margin-bottom: 10px;
+}
+
+.card input[type="text"],
+.card input[type="date"],
+.card textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+label {
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.card #usernameCheck {
+    margin-top: 5px;
+}
+
+.card #createNewArticle,
+.card #edit,
+.card #password,
+.card #save,
+.card #delete {
+    margin-right: 10px;
+}
+
+/* Table */
+.table-container {
+    align-items: center;
+    border-collapse: collapse;
+    flex: 1;
+    align-items: center;
+    width: 50%;
+    overflow-x: auto;
+}
+
+.table-container {
+    width: 40%;
+    border-collapse: collapse;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: center;
+    border: none;
+    width: max-content;
+}
+
+td th a {
+    text-decoration: none;
+    color: rgb(101, 103, 103)
+}
+
+a:hover {
+    color: rgb(150, 80, 75);
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* div for table and edit button */
+#account_analyis_data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.input-field input[readonly] {
+    border: none;
+}
+
+.input-field textarea[readonly] {
+    border: none;
+    resize: none;
+}
+
+/* div for table, edit button, and card */
+#table_edit_card_container {
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 690px) {
+    .table-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .table-row {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .table-cell {
+      flex: 1;
+    }
+  }
+  

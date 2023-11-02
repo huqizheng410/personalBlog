@@ -1,0 +1,292 @@
+.container {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgb(167, 121, 128);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    cursor: pointer;
+    transition: transform 0.05s;
+}
+
+button:hover {
+    background-color: rgb(150, 80, 75);
+}
+
+.comment-header a:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.article {
+    width: 95%;
+    margin: 5px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.article h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.article h2 {
+    margin-top: 0;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.author-info a {
+    margin-right: 10px;
+}
+
+.author-info p,
+.author-info button {
+    margin: 0 5px;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.author-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.heart-icon,
+.edit-icon {
+    font-size: 14px;
+    padding: 4px 8px;
+    width: 80px;
+    border-radius: 5px;
+}
+
+.article h1 {
+    overflow-wrap: break-word;
+}
+
+.author-info p {
+    color: #666;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.article-content {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.article-content img {
+    max-height: 300px;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.article-content div {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+
+.liked-button {
+    background-color: rgb(247, 30, 66);
+    opacity: 0.5;
+}
+
+#likesCount {
+    font-weight: bold;
+}
+
+#articleId,
+#userId,
+#authorId {
+    display: none;
+}
+
+/* CSS Styling for Comments */
+.comments {
+    margin: 20px 20px;
+    padding: 10px;
+}
+
+.comment p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.addComment {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.addComment button {
+    padding: 10px 20px;
+    cursor: pointer;
+    position: absolute;
+    bottom: -10;
+    right: 0;
+    margin-top: 5px;
+}
+
+.comments-section {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.comment {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#commentbox {
+    width: 100%;
+}
+
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-time {
+    font-size: 14px;
+    color: #888;
+}
+
+.comment-username {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.comment-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+
+.comment-content {
+    padding: 5px 10px;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+    font-size: 14px;
+    overflow-wrap: break-word;
+
+}
+
+.comment-actions {
+    display: flex;
+}
+
+.child-comments {
+    margin-left: 40px;
+}
+
+.grandchild-comments {
+    margin-left: 60px;
+}
+
+
+#toggleComments {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.reply-button,
+.delete-button,
+.reply-submit-button,
+.reply-cancel-button {
+    font-size: 13px;
+    padding: 4px 8px;
+    margin: 5px 2px;
+}
+
+.reply-submit-button,
+.reply-cancel-button {
+    margin: 0;
+}
+
+/*reply form*/
+.reply-form {
+    margin-top: 20px;
+}
+
+.reply-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 0px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#commentErrorMessage {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* pop window style */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content button {
+    margin-top: 10px;
+}

@@ -1,0 +1,118 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/manage_subscription.css">
+    <script src="/js/manage_subscription.js"></script>
+</head>
+
+<div id="account_analyis_data">
+    <h1>{{account_analyis_data.authorname}}</h1>
+    <table>
+        <tr>
+            <td>
+                <a href="/managesubscription?subscriberName={{account_analyis_data.authorname}}
+                &&username={{account_analyis_data.authorname}}">Following<a>
+            </td>
+            <td>
+                <a href="/managesubscription?followerName={{account_analyis_data.authorname}}
+                &&username={{account_analyis_data.authorname}}">Followers<a>
+            </td>
+            <td>
+                <a href="/managesubscription?writerName={{account_analyis_data.authorname}}
+                &&username={{account_analyis_data.authorname}}">Articles</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/managesubscription?subscriberName={{account_analyis_data.authorname}}
+                &&username={{account_analyis_data.authorname}}">{{account_analyis_data.subscribe}}</a>
+            </td>
+            <td>
+                <a href="/managesubscription?followerName={{account_analyis_data.authorname}}
+                &&username={{account_analyis_data.authorname}}">{{account_analyis_data.followers}}</a>
+            </td>
+            <td>
+                <a href="/managesubscription?writerName={{account_analyis_data.authorname}}
+                &&username={{account_analyis_data.authorname}}">{{account_analyis_data.atricles}}</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{{#if ableToUnsubscribe}}
+{{#each Subscribers}}
+<div class="user_detail_with_button">
+    <div id="userlink" onclick="location.href=`/userdetail/{{this.username}}`">
+        <div class="detail">
+            <img id="currentAvatarSrc" src="{{this.avatar}}" width="50">
+            <div id="username">{{this.username}}</div>
+        </div>
+        <label for="description">Description:</label><br>
+        <span id="description">{{this.description}}</span>
+    </div>
+    <button
+        onclick="location.href=`/unsubscribe?userid={{this.user_id}}&&authorid={{this.author_id}}`">Unsubscribe</button>
+</div>
+{{/each}}
+{{else}}
+{{#each Subscribers}}
+<div class="user_detail">
+    <div id="userlink" onclick="location.href=`/userdetail/{{this.username}}`">
+        <div class="detail">
+            <img id="currentAvatarSrc" src="{{this.avatar}}" width="50">
+            <div id="username">{{this.username}}</div>
+        </div>
+        <label for="description">Description:</label><br>
+        <span id="description">{{this.description}}</span>
+    </div>
+</div>
+{{/each}}
+{{/if}}
+
+{{#if ableToRemove}}
+{{#each Followers}}
+<div class="user_detail_with_button">
+    <div onclick="location.href=`/userdetail/{{this.username}}`">
+        <div class="detail">
+            <img id="currentAvatarSrc" src="{{this.avatar}}" width="50">
+            <p id="username">{{this.username}}</p>
+        </div>
+        <label for="description">Description:</label><br>
+        <span id="description">{{this.description}}</span>
+    </div>
+    <button id="Delete-follower-button"
+        onclick="location.href=`/deleteFollower?userid={{this.user_id}}&&authorid={{this.author_id}}`; event.stopPropagation();">Remove</button>
+</div>
+{{/each}}
+{{else}}
+{{#each Followers}}
+<div class="user_detail" onclick="location.href=`/userdetail/{{this.username}}`">
+    <div class="detail">
+        <img id="currentAvatarSrc" src="{{this.avatar}}" width="50">
+        <div id="username">{{this.username}}</div>
+    </div>
+    <label for="description">Description:</label><br>
+    <span id="description">{{this.description}}</span>
+</div>
+{{/each}}
+{{/if}}
+
+
+{{#each Articles}}
+<div class="article-card" onclick="location.href=`/article/{{this.id}}`">
+    <div class="article-header">
+        <img class="currentAvatarSrc" src="{{this.avatar}}" width="30">
+        <span class="article-author"
+            onclick="location.href=`/userdetail/{{this.username}}`; event.stopPropagation();">{{this.username}}</span>
+        <span class="article-date">{{this.create_date}}</span>
+    </div>
+    <div class="article-title">{{this.title}}</div>
+    <div class="article-content">
+        <span>{{this.content}}...</span>
+    </div>
+    {{#if this.isAuthor}}
+    <div id="article_buttons">
+        <button type="button"
+            onclick="location.href=`/edit_create_article?id={{this.id}}`; event.stopPropagation();">Edit</button>
+    </div>
+    {{/if}}
+</div>
+{{/each}}

@@ -1,0 +1,21 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+    <script src="/js/homepage.js"></script>
+</head>
+
+<div class="container">
+    <div class="filterbar">
+        <button id="createNewArticle" onclick="location.href=`/edit_create_article`">Create New Article</button>
+        <div class="filter-options">
+            <label for="filterOption">Sort By:</label>
+            <select id="filterOption">
+                <option value="date">Date (Latest First)</option>
+                <option value="title">Title (A-Z)</option>
+                <option value="username">Username (A-Z)</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="showArticles"></div>
+    <button id="loadMoreButton">Load More</button>
+</div>

@@ -1,0 +1,104 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/user_portfolio.css">
+    <script type="text/javascript" src="/js/details.js"></script>
+</head>
+
+<h1>Personal Details</h1>
+<div id="table_edit_card_container">
+    <div id="account_analyis_data">
+        <div class="table-container">
+            <table>
+                <tr class="table-row">
+                    <th class="table-cell"><a
+                            href="/managesubscription?subscriberName={{account_analyis_data.authorname}}&&username={{account_analyis_data.authorname}}">Following<a>
+                    </th>
+                    <th class="table-cell"><a
+                            href="/managesubscription?followerName={{account_analyis_data.authorname}}&&username={{account_analyis_data.authorname}}">Followers<a>
+                    </th>
+                    <th class="table-cell"><a
+                            href="/managesubscription?writerName={{account_analyis_data.authorname}}&&username={{account_analyis_data.authorname}}">Articles</a>
+                    </th>
+                </tr>
+                <tr class="table-row">
+                    <td class="table-cell"><a
+                            href="/managesubscription?subscriberName={{account_analyis_data.authorname}}&&username={{account_analyis_data.authorname}}">{{account_analyis_data.subscribe}}</a>
+                    </td>
+                    <td class="table-cell"><a
+                            href="/managesubscription?followerName={{account_analyis_data.authorname}}&&username={{account_analyis_data.authorname}}">{{account_analyis_data.followers}}</a>
+                    </td>
+                    <td class="table-cell"><a
+                            href="/managesubscription?writerName={{account_analyis_data.authorname}}&&username={{account_analyis_data.authorname}}">{{account_analyis_data.atricles}}</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {{#if author}}
+    <div class="card">
+        <div id="details">
+            <div id="avatar">
+                <img id="currentAvatarSrc" src="{{author.avatar}}" width="30">
+                <div id="username">{{author.username}}</div>
+            </div>
+            <div class="detail-field">
+                <label for="birthday">Date of Birth:</label>
+                <div id="birthday">{{author.birthday}}</div>
+            </div>
+            <div class="detail-field">
+                <label for="description">Description:</label><br>
+                <span id="description">{{author.description}}</span>
+            </div>
+        </div> 
+        {{#if isSubscribed}}
+        <button class="button-container" id="subscribe-button" data-state="subscribed"
+            data-author-id="{{authorId}}">Unsubscribe</button>
+        {{else}}
+        <button class="button-container" id="subscribe-button" data-state="not-subscribed"
+            data-author-id="{{authorId}}">Subscribe</button>
+        {{/if}}
+    </div>
+    {{else}}
+    <div class="card">
+        <div id="avatar">
+            <img id="currentAvatarSrc" src="{{currentUser.avatar}}" width="30">
+        </div>
+
+        <div class="input-field">
+            <label for="txtUsername">Username:</label>
+            <input type="text" name="username" id="username" value="{{currentUser.username}}" readonly>
+            <span id="usernameInfo" style="display:none; color: red;">Please choose your username!</span>
+            <p id="usernameCheck" style="color: red;"></p>
+        </div>
+
+        <div class="input-field">
+            <label for="firstname">First Name:</label>
+            <input type="text" name="firstname" id="firstname" value="{{currentUser.first_name}}" readonly>
+            <span id="firstnameInfo" style="display:none; color: red;">Please enter your first name!</span>
+        </div>
+
+        <div class="input-field">
+            <label for="lastname">Last Name:</label>
+            <input type="text" name="lastname" id="lastname" value="{{currentUser.last_name}}" readonly>
+             <span id="lastnameInfo" style="display:none; color: red;">Please enter your last name!</span>
+        </div>
+
+        <div class="input-field">
+            <label for="birthday">Date of Birth:</label>
+            <input type="date" name="birthday" id="birthday" value="{{currentUser.birthday}}" readonly>
+        </div>
+
+        <div class="input-field">
+            <label for="description">Description:</label><br>
+            <textarea name="description" id="description" readonly>{{currentUser.description}}</textarea>
+        </div>
+        <div class="buttton-container">
+        <div class="buttons">
+            <button id="edit-button">Edit Details</button>
+            <button id="password">Change Password</button>
+            <button id="save" style="display: none;">Save Changes</button>
+            <button id="delete">Delete Account</button>
+        </div>
+        </div>
+    </div>
+
+    {{/if}}
